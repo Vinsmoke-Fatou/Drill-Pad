@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Exercices:</h1>
+
+    <ul>
+      <li>
+        <h2>Cart Manager</h2>
+        <p>
+          Build a createCart() factory function that returns an object with four
+          methods: addItem(item), removeItem(id), getTotal(), and getSummary().
+          Each item has a name, price, and quantity. The internal list of items
+          must be completely private — inaccessible from outside the returned
+          object. Calling getSummary() should print each item with its line
+          total, followed by the cart's grand total.
+        </p>
+      </li>
+      <li>
+        <h2>User Validaton</h2>
+        <p>
+          Write a validateUser(data) function that receives a plain object and
+          checks it against a set of rules: name must be a non-empty string,
+          email must contain @ and a ., age must be a number between 13 and 120,
+          and password must be at least 8 characters and contain at least one
+          number. The function must return an object with two fields: valid
+          (boolean) and errors (array of descriptive strings for each failed
+          rule). If all rules pass, errors is an empty array.
+        </p>
+      </li>
+      <li>
+        <h2>Async Data Fetcher with Retry</h2>
+        <p>
+          Write an async function fetchWithRetry(url, maxAttempts) that fetches
+          a URL and, if it fails, automatically retries up to maxAttempts times
+          before giving up. Each retry attempt should be logged with its attempt
+          number. If all attempts fail, the function must throw a descriptive
+          error. If it succeeds, it returns the parsed JSON. Test it against a
+          real public API endpoint (such as
+          https://jsonplaceholder.typicode.com/posts/1) and a fake broken URL to
+          verify both paths.a
+        </p>
+      </li>
+      <li>
+        <h2>Event System</h2>
+        <p>
+          Build an EventEmitter class from scratch with three methods: on(event,
+          listener) to register a callback, emit(event, ...args) to trigger all
+          listeners for that event and pass them arguments, and off(event,
+          listener) to remove a specific listener. Write a small test that
+          creates an instance, registers two listeners on the same event, emits
+          it, removes one listener, emits it again, and confirms only the
+          remaining listener fires.
+        </p>
+      </li>
+      <li>
+        <h2>Pipeline Builder</h2>
+        <p>
+          Write a pipe(...functions) utility that takes any number of functions
+          as arguments and returns a new function. When that new function is
+          called with a value, it passes the value through each function in
+          order — the output of one becomes the input of the next. Then use pipe
+          to build a text-processing pipeline that: trims whitespace, converts
+          to lowercase, replaces all spaces with hyphens, and removes any
+          character that is not a letter, number, or hyphen. Test it on at least
+          three different input strings.
+        </p>
+      </li>
+      <li>
+        <h2>Memoized Fibonacci</h2>
+        <p>
+          Write a memoize(fn) function that wraps any function and caches its
+          results by arguments. Then write a standard recursive fibonacci(n)
+          function. Apply memoize to it and compare the performance of the
+          memoized vs non-memoized version on fibonacci(40) by measuring
+          execution time with console.time / console.timeEnd. The memoized
+          version must complete near-instantly on the second call for any
+          previously computed input.
+        </p>
+      </li>
+      <li>
+        <h2>Paginator</h2>
+        <p>
+          Write a paginate(items, pageNumber, pageSize) function that takes an
+          array of any items and returns a result object containing: data (the
+          items on the requested page), page (current page number), pageSize,
+          totalItems, totalPages, and hasNextPage / hasPrevPage (booleans). The
+          function must handle edge cases: requesting a page beyond the last
+          page, a pageSize of 0, and an empty array. In each edge case, return a
+          result with an appropriate empty state rather than crashing.
+        </p>
+      </li>
+      <li>
+        <h2>Deep Object Diff</h2>
+        <p>
+          Write a diff(objA, objB) function that compares two plain objects and
+          returns a result describing what changed. The result should have three
+          fields: added (keys present in objB but not objA), removed (keys
+          present in objA but not objB), and changed (keys present in both but
+          with different values). Values are compared with strict equality — no
+          deep comparison of nested objects is required. Test it on two user
+          profile objects where some fields were updated, one field was removed,
+          and one new field was added.
+        </p>
+      </li>
+      <li>
+        <h2>Rate Limiter</h2>
+        <p>
+          Write a createRateLimiter(maxCalls, windowMs) function that returns a
+          wrapper. When you call limiter(fn) on a function, it returns a new
+          version of that function that can only be called maxCalls times within
+          any windowMs millisecond window. If the limit is exceeded, the call is
+          silently dropped (or logs a warning — your choice). After the window
+          expires, the counter resets. Demonstrate it by wrapping a simple
+          logging function and calling it rapidly in a loop with setInterval.
+        </p>
+      </li>
+      <li>
+        <h2>Async Queue</h2>
+        <p>
+          Build an AsyncQueue class that processes tasks one at a time, in
+          order. It has an add(asyncFn) method that accepts an async function (a
+          task) and queues it for execution. Tasks are executed sequentially —
+          the next task only starts after the previous one resolves. The class
+          should have a size() method that returns the number of tasks currently
+          waiting. Test it by adding 5 async tasks that each take a random
+          amount of time (use setTimeout wrapped in a Promise), and confirm
+          through your logs that they complete in the exact order they were
+          added, not in order of completion speed.
+        </p>
+      </li>
+    </ul>
+
+    <script src="cart-manager.js"></script>
+  </body>
+</html>
