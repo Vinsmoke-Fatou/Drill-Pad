@@ -7,7 +7,7 @@ function createCart() {
       listItems.push(newItem);
     }
   
-    function removeItem(id) {
+    function removeItem(id) { 
       listItems = listItems.filter(item => item.id !== id);
     }
 
